@@ -15,7 +15,7 @@ export async function GET(request : NextRequest) {
         data : user 
      })
     }
-    catch(error : any){
+    catch(error : unknown){
         return NextResponse.json({error:error.message} ,{status : 400}) 
     }
 }

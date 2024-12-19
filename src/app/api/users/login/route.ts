@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import {NextResponse } from "next/server";
 import { connect } from "../../../../dbConfig/dbConfig";
 import User from "../../../../models/userModel";
 import bcryptjs from "bcryptjs";
@@ -57,7 +57,7 @@ export async function POST(request : NextResponse) {
 
 
     }
-    catch(error:any){
+    catch(error:unknown){
         return NextResponse.json(
             { error: error?.message || "An unknown error occurred" },
             { status: 500 }

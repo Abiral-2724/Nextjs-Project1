@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 // jainabiral2004
 // lcVSnnzdjWKBw37T
 export default function Home() {

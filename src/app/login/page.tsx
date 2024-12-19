@@ -30,7 +30,7 @@ export default function LoginPage() {
                 toast.success("Login Successfully");
                 router.push("/profile");
             }
-        } catch (error: any) {
+        } catch (error: unknown) {
             if (error.response) {
                 const errorMessage = error.response.data.error;
                 if (errorMessage === "User does not exits") {
@@ -136,7 +136,7 @@ export default function LoginPage() {
 
                     <div className="text-center text-sm text-gray-600">
                         <p>
-                            Don't have an account?{" "}
+                            Do not have an account?{" "}
                             <Link href="/signup" className="font-medium text-blue-600 hover:text-blue-500 transition-colors">
                                 Sign up now
                             </Link>

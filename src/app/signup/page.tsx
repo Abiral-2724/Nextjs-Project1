@@ -32,7 +32,7 @@ export default function SignupPage() {
                 toast.success("Email verification link sended to your mail")
                 router.push("/login");
             }
-        } catch (error: any) {
+        } catch (error: unknown) {
             if (error.response) {
                 const errorMessage = error.response.data.error;
                 if (errorMessage === "User already exists") {

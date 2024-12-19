@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
    })
    
     // Return success response without the password
-    const { password: _, ...userWithoutPassword } = savedUser.toObject();
+    
     return NextResponse.json({
       message: "User created successfully",
       success: true,

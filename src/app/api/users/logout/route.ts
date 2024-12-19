@@ -12,7 +12,7 @@ export async function GET() {
         )
         return response ;
     }
-    catch(error : any){
+    catch(error : unknown){
         return NextResponse.json(
             { error: error?.message || "An unknown error occurred" },
             { status: 500 }

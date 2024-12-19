@@ -16,8 +16,8 @@ export default function ProfilePage() {
             await axios.get("/api/users/logout");
             toast.success("Logged out successfully");
             router.push('/login');
-        } catch (error: any) {
-            toast.error("Error while logging out");
+        } catch (error: unknown) {
+            toast.error("Error while logging out"+error);
         }
     }
 
@@ -26,8 +26,8 @@ export default function ProfilePage() {
             const res = await axios.get('/api/users/me');
             console.log(res.data);
             setData(res.data.data._id);
-        } catch (error) {
-            toast.error("Failed to fetch user details");
+        } catch (error : unknown) {
+            toast.error("Failed to fetch user details"+error);
         }
     }
 
