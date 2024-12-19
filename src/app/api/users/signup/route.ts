@@ -51,12 +51,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       message: "User created successfully",
       success: true,
-      user: userWithoutPassword,
+      user,
     });
     
-  } catch (error) {
+  } catch (error:unknown) {
     return NextResponse.json(
-      { error: error?.message || "An unknown error occurred" },
+      { error: (error as Error)?.message || "An unknown error occurred" },
       { status: 500 }
     );
   }

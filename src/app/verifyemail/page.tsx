@@ -15,7 +15,7 @@ export default function Verifyemailpage() {
             setVerified(true);
         } catch (error: unknown) {
             setError(true);
-            console.log(error.response.data)
+            console.log(error) ;
         }
     }
 
