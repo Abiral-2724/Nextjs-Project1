@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { connect } from "../../../../dbConfig/dbConfig";
 import User from "../../../../models/userModel";
 import bcryptjs from "bcryptjs";
+import { sendEmail } from "@/helpers/mailer";
 
 connect();
 
@@ -39,6 +40,12 @@ export async function POST(request: NextRequest) {
     });
     const savedUser = await newUser.save();
 
+   // send verification email 
+   await sendEmail({
+    email , emailType:"VERIFY" ,userId : savedUser._id
+
+   })
+   
     // Return success response without the password
     const { password: _, ...userWithoutPassword } = savedUser.toObject();
     return NextResponse.json({

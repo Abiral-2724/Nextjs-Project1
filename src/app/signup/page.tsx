@@ -29,6 +29,7 @@ export default function SignupPage() {
             
             if (response.data.success) {
                 toast.success("Signup successful!");
+                toast.success("Email verification link sended to your mail")
                 router.push("/login");
             }
         } catch (error: any) {
