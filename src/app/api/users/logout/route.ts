@@ -14,7 +14,7 @@ export async function GET() {
     }
     catch(error : unknown){
         return NextResponse.json(
-            { error: error?.message || "An unknown error occurred" },
+            { error:"An unknown error occurred" },
             { status: 500 }
           );
     }
