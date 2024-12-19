@@ -34,7 +34,7 @@ export async function POST(request : NextResponse) {
 
     // create token data 
     const tokenData = {
-        _id : user._id ,
+        id : user._id ,
         username : user.username ,
         email : user.email
     }
@@ -51,7 +51,7 @@ export async function POST(request : NextResponse) {
         httpOnly : true 
     })
 
-    return response ;
+    return response ; 
 
 
 
