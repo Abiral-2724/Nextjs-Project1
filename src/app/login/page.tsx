@@ -31,7 +31,18 @@ export default function LoginPage() {
                 router.push("/profile");
             }
         } catch (error: unknown) {
-            console.log((error as Error)?.message)
+            if (error.response) {
+                const errorMessage = error.response.data.error;
+                if (errorMessage === "User does not exits") {
+                    toast.error("No account found with this email");
+                } else if (errorMessage === "Invalid Password") {
+                    toast.error("Incorrect password");
+                } else {
+                    toast.error(errorMessage || "Login failed");
+                }
+            } else {
+                toast.error("Something went wrong. Please try again!");
+            }
         } finally {
             setLoading(false);
         }

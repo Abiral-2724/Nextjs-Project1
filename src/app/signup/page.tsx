@@ -33,7 +33,20 @@ export default function SignupPage() {
                 router.push("/login");
             }
         } catch (error: unknown) {
-            console.log((error as Error)?.message)
+            if (error.response) {
+                const errorMessage = error.response.data.error;
+                if (errorMessage === "User already exists") {
+                    toast.error("An account with this email already exists");
+                } else if (errorMessage.includes("password")) {
+                    toast.error("Password must be at least 6 characters long");
+                } else if (errorMessage.includes("username")) {
+                    toast.error("Username must be at least 3 characters long");
+                } else {
+                    toast.error(errorMessage || "Signup failed");
+                }
+            } else {
+                toast.error("Something went wrong. Please try again!");
+            }
         } finally {
             setLoading(false);
         }

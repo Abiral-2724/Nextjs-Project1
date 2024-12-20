@@ -2,8 +2,11 @@
 
 import { User, Mail, Calendar, MapPin } from 'lucide-react';
 
-// Next.js 13 automatically passes `params` for dynamic routes
-export default function UserProfile() {
+interface UserProfileParams {
+    id: string;
+}
+
+export default function UserProfile({ params }: any) {
     return (
         <div className="min-h-screen bg-gray-50 py-8">
             <div className="max-w-3xl mx-auto px-4">
@@ -36,7 +39,7 @@ export default function UserProfile() {
                                 <div className="flex items-center gap-2 text-gray-600">
                                     <span className="font-medium">User ID:</span>
                                     <span className="font-mono bg-white px-3 py-1 rounded border border-gray-200">
-                                        
+                                        {params.id}
                                     </span>
                                 </div>
                             </div>

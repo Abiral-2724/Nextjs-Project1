@@ -9,7 +9,7 @@ interface SendEmailParams {
   userId: string;
 }
 
-export const sendEmail = async ({ email, emailType, userId }: SendEmailParams): Promise<any> => {
+export const sendEmail = async ({ email, emailType, userId }: SendEmailParams) => {
   try {
     // Create a hashed token
     const hashedToken = await bcryptjs.hash(userId.toString(), 10);
